@@ -45,7 +45,8 @@ export class BinanceGateway implements OnGatewayInit, OnGatewayConnection, OnGat
             const parsedData = JSON.parse(data.toString());
             const tradeData = {
                 t: parsedData.T,
-                p: parsedData.p
+                p: parsedData.p,
+                s: parsedData.s
             };
             console.log('Emitting trade data:', tradeData);
             this.server.emit('trade', tradeData);
