@@ -60,7 +60,7 @@ export class BinanceGateway implements OnGatewayInit, OnGatewayConnection, OnGat
         this.binanceWs.on('close', (): void => {
             console.log('WebSocket connection closed. Reconnecting...');
             this.isReconnecting = true;
-            setTimeout(() => this.connectToBinance(), 5000);
+            setTimeout(() => this.connectToBinance(), 5000);  // Simple reconnect logic
         });
     }
 }
