@@ -1,16 +1,8 @@
+
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
-import { WebsocketModule } from './modules/websocket/websocket.module';
+import { WebsocketModule } from './modules/websocket/websocket.module'; // Adjust the path as necessary
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      envFilePath: `.env`,
-      isGlobal: true,
-    }),
-    MongooseModule.forRoot(process.env.mongodbUrl),  // Connect to MongoDB
-    WebsocketModule,
-  ],
+  imports: [WebsocketModule],
 })
-export class AppModule {}
+export class AppModule { }

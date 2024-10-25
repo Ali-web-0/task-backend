@@ -1,14 +1,7 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { WebsocketGateway } from './gateway/websocket.gateway';
-import { WebsocketService } from './services/websocket.service';
-import { Message, MessageSchema } from './models/message.schema';
+import { BinanceGateway } from './gateway/binance.gateway';
 
 @Module({
-    imports: [
-        MongooseModule.forFeature([{ name: Message.name, schema: MessageSchema }]),  // Register MongoDB schema
-    ],
-    providers: [WebsocketGateway, WebsocketService],
-    exports: [WebsocketService],
+    providers: [BinanceGateway],
 })
 export class WebsocketModule { }
